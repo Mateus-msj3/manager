@@ -1,0 +1,11 @@
+.logo {
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+
+:host ::ng-deep .ui-menubar {
+    background-image: linear-gradient(to top, rgba(252, 252, 252, 0), rgb(21, 47, 161));
+    color: rgb(255, 255, 255);
+
+}
