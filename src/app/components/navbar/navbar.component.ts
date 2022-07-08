@@ -18,17 +18,22 @@ export class NavbarComponent implements OnInit {
 
     this.items = [
       {
-        label: 'History Games',
+        label: 'Dashboard',
         icon: 'pi pi-fw pi-file',
-        styleClass: "menu-links",
+        style:{'color': 'red'},
+      },
+      {
+        label: 'Employee',
+        icon: 'pi pi-fw pi-file',
+        style:{'color': 'white'},
         items: [
+          {
+            label: 'List',
+            icon: 'pi pi-users'
+          },
           {
             label: 'New',
             icon: 'pi pi-fw pi-plus',
-          },
-          {
-            label: 'List',
-            icon: 'pi pi-fw pi-trash'
           },
           {
             separator: true
@@ -40,71 +45,39 @@ export class NavbarComponent implements OnInit {
         ]
       },
       {
-        label: 'Study Schedule',
+        label: 'Sector',
         icon: 'pi pi-fw pi-calendar',
         items: [
           {
+            label: 'List',
+            icon: 'pi pi-fw pi-th-large'
+          },
+          {
             label: 'New',
-            icon: 'pi pi-fw pi-align-left'
+            icon: 'pi pi-fw pi-plus',
           },
           {
-            label: 'Right',
-            icon: 'pi pi-fw pi-align-right',
-            styleClass:"menu-links"
+            separator: true
           },
           {
-            label: 'Center',
-            icon: 'pi pi-fw pi-align-center'
-          },
-          {
-            label: 'Justify',
-            icon: 'pi pi-fw pi-align-justify'
-          },
+            label: 'Report',
+            icon: 'pi pi-fw pi-external-link'
+          }
 
         ]
       },
       {
         label: 'Profile',
         icon: 'pi pi-fw pi-user',
-        items: [
-          {
-            label: 'New',
-            icon: 'pi pi-fw pi-user-plus',
-
-          },
-          {
-            label: 'Delete',
-            icon: 'pi pi-fw pi-user-minus',
-
-          },
-          {
-            label: 'Search',
-            icon: 'pi pi-fw pi-users',
-            items: [
-              {
-                label: 'Filter',
-                icon: 'pi pi-fw pi-filter',
-                items: [
-                  {
-                    label: 'Print',
-                    icon: 'pi pi-fw pi-print'
-                  }
-                ]
-              },
-              {
-                icon: 'pi pi-fw pi-bars',
-                label: 'List'
-              }
-            ]
-          }
-        ]
       },
-      
+
       {
         label: 'Quit',
         icon: 'pi pi-fw pi-power-off'
       }
     ];
+
+    this.activeItem = this.items[0];
 
   }
 }

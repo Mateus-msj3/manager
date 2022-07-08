@@ -1,11 +1,19 @@
 .logo {
-    margin-right: 10px;
-    text-transform: uppercase;
+  margin-right: 10px;
+  text-transform: uppercase;
+  font-family: "arial";
+  color: #ffffff;
+
 }
 
 
 :host ::ng-deep .ui-menubar {
-    background-image: linear-gradient(to top, rgba(252, 252, 252, 0), rgb(21, 47, 161));
-    color: rgb(255, 255, 255);
-
+  //background-image: linear-gradient(rgba(213, 204, 204, 0), rgb(207, 223, 253));
+  background-color: #060649;
+  color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
+
