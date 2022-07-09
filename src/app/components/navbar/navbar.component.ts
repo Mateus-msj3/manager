@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
         label: 'Dashboard',
         icon: 'pi pi-fw pi-file',
         style:{'color': 'red'},
+        routerLink:'/dashboard'
       },
       {
         label: 'Employee',
@@ -55,6 +56,7 @@ export class NavbarComponent implements OnInit {
           {
             label: 'New',
             icon: 'pi pi-fw pi-plus',
+            routerLink:'/new-sector'
           },
           {
             separator: true
