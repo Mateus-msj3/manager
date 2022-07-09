@@ -2,15 +2,15 @@
   margin-right: 10px;
   text-transform: uppercase;
   font-family: "arial";
-  color: #ffffff;
+  color: #060649;
 
 }
 
 
 :host ::ng-deep .ui-menubar {
-  //background-image: linear-gradient(rgba(213, 204, 204, 0), rgb(207, 223, 253));
-  background-color: #060649;
-  color: rgb(255, 255, 255);
+  //background-image: linear-gradient(rgba(213, 204, 204, 0), rgb(207, 223, 253)) #060649;
+  background-color: #f9f9fa;
+  color: #060649;
   position: fixed;
   top: 0;
   left: 0;
