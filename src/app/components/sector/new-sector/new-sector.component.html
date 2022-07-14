@@ -1,10 +1,47 @@
+<div class="grid p-fluid title">
+  <div class="p-fluid col-12 md:col-8">
+    <h2>Cadastro de Setores</h2>
+  </div>
+
+  <div class="p-fluid col-12 md:col-4">
+    <div class="">
+      <p-button class="button" label="Save" icon="pi pi-check" iconPos="right"></p-button>
+    </div>
+  </div>
+</div>
+
 <div class="grid p-fluid">
 
-  <div>
+  <div class="p-fluid col-12 md:col-12">
+    <div class="p-inputgroup">
       <span class="p-float-label">
-        <input id="float-input" type="text" pInputText [(ngModel)]="value2">
-        <label for="float-input">Username</label>
+        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="value2">
+        <label for="float-input">Nome</label>
       </span>
+    </div>
+
   </div>
+
+  <div class="p-fluid col-12 md:col-6">
+    <div>
+      <label for="icon" style="margin-top: 10px">Data de Inicio</label>
+      <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>
+    </div>
+  </div>
+
+  <div class="p-fluid col-12 md:col-6">
+    <div class="radio">
+      <label for="icon" class="label-radio">Status:</label>
+      <p-radioButton name="groupname" value="val1" label="Ativo" [(ngModel)]="isAtivo" class="radio-button"></p-radioButton>
+      <p-radioButton name="groupname" value="val1" label="Inativo" [(ngModel)]="isInativo" class="radio-button"></p-radioButton>
+    </div>
+  </div>
+
+<!--  <div class="p-fluid col-12 md:col-4">-->
+<!--    <div class="">-->
+<!--      <p-button class="button" label="Save" icon="pi pi-check" iconPos="right"></p-button>-->
+<!--    </div>-->
+<!--  </div>-->
+
 
 </div>

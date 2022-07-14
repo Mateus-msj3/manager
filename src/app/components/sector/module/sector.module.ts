@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NewSectorComponent} from "../new-sector/new-sector.component";
-import {InputTextModule} from 'primeng/inputtext';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {NewSectorComponent} from "../new-sector/new-sector.component";
 import {DashboardComponent} from "../../dashboard/dashboard.component";
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {CalendarModule} from 'primeng/calendar';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 
 const routes: Routes = [
@@ -28,7 +32,11 @@ const routes: Routes = [
     RouterModule,
     InputTextModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ButtonModule,
+    CalendarModule,
+    BrowserAnimationsModule,
+    RadioButtonModule,
   ]
 })
 export class SectorModule { }

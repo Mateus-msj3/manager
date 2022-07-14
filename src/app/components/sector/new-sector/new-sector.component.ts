@@ -8,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class NewSectorComponent implements OnInit {
   value2: any;
 
+  date3: any;
+
+  selectedValue: any;
+
+  isAtivo: any;
+
+  isInativo: any;
+
   constructor() { }
 
   ngOnInit(): void {
