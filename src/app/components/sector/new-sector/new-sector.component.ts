@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {SelectItem} from "primeng/api";
+
+class Product {
+}
 
 @Component({
   selector: 'app-new-sector',
@@ -15,6 +19,14 @@ export class NewSectorComponent implements OnInit {
   isAtivo: any;
 
   isInativo: any;
+
+  products1?: Product[];
+
+  products2?: Product[];
+
+  statuses?: SelectItem[];
+
+  clonedProducts: { [s: string]: Product; } = {};
 
   constructor() { }
 

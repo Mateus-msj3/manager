@@ -9,6 +9,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {FieldsetModule} from 'primeng/fieldset';
+
 
 
 const routes: Routes = [
@@ -37,6 +39,7 @@ const routes: Routes = [
     CalendarModule,
     BrowserAnimationsModule,
     RadioButtonModule,
+    FieldsetModule,
   ]
 })
 export class SectorModule { }
