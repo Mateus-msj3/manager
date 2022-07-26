@@ -27,6 +27,7 @@ export class NewSectorComponent implements OnInit {
   statuses?: SelectItem[];
 
   clonedProducts: { [s: string]: Product; } = {};
+  value3: any;
 
   constructor() { }
 
