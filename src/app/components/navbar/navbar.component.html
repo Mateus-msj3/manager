@@ -1,12 +1,12 @@
-<p-menubar [model]="items" styleClass="ui-menubar p-menuitem-text">
+<p-menubar [model]="items" styleClass="ui-menubar">
     <ng-template pTemplate="start">
-        <h3 class="logo">Manager</h3>
+        <img src="assets/img-logo-2.png" class="img-logo">
+<!--        <h3 class="logo">Manager</h3>-->
     </ng-template>
     <ng-template pTemplate="end">
       <div style="display: flex">
-        <p>Nome do Usuário</p>
+        <p class="nome-usuario">Nome do Usuário</p>
         <i class="pi pi-user"></i>
       </div>
     </ng-template>
 </p-menubar>
-<!--<p-tabMenu [model]="items" [activeItem]="activeItem" styleClass="ui-menubar"></p-tabMenu>-->

@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Dashboard',
         icon: 'pi pi-fw pi-file',
-        style:{'color': 'red'},
+        styleClass:"ui-menuitem-text",
         routerLink:'/dashboard'
       },
       {

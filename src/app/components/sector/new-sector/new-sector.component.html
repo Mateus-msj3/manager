@@ -1,6 +1,6 @@
 <div class="grid p-fluid title">
   <div class="p-fluid col-12 md:col-8">
-    <h2>Cadastro de Setores</h2>
+    <h2 class="">Cadastro de Setores</h2>
   </div>
 
   <div class="p-fluid col-12 md:col-4">
@@ -24,14 +24,14 @@
 
   <div class="p-fluid col-12 md:col-4">
     <div>
-      <label for="icon" style="margin-top: 10px">Data de Inicio</label>
-      <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>
+      <label for="icon" class="label-data">Data de Inicio</label>
+      <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon1"></p-calendar>
     </div>
   </div>
 
   <div class="p-fluid col-12 md:col-8">
     <div class="radio">
-      <label for="icon" class="label-radio">Status:</label>
+      <label  class="label-radio">Status:</label>
       <p-radioButton name="groupname" value="val1" label="Ativo" [(ngModel)]="isAtivo"
                      class="radio-button"></p-radioButton>
       <p-radioButton name="groupname" value="val1" label="Inativo" [(ngModel)]="isInativo"
@@ -42,33 +42,12 @@
   <div class="p-fluid col-12 md:col-12">
     <p-fieldset legend="Adicionar Cargos" [toggleable]="true">
 
-      <div class="grid p-fluid">
-        <div class="p-fluid col-12 md:col-8">
-          <div class="p-inputgroup">
-          <span class="p-float-label">
-            <input class="input" id="float-input-cargo" type="text" pInputText [(ngModel)]="value3">
-            <label for="float-input-cargo">Cargo</label>
-          </span>
-          </div>
-        </div>
-
-        <div class="p-fluid col-12 md:col-4">
-          <div class="">
-            <p-button class="button" label="Add" icon="pi pi-check" iconPos="right"></p-button>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-fluid col-12 md:col-12">
-        <p-card header="Simple Card" [style]="{'width': 'auto', 'margin-bottom': '2em'}">
-          <ng-template pTemplate="header">
-            <img alt="Card" src="assets/showcase/images/usercard.png">
-          </ng-template>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-        </p-card>
-      </div>
-
+      <h5>Digite o nome do cargo</h5>
+      <p-chips [(ngModel)]="values3">
+        <ng-template let-item pTemplate="item">
+          {{item}} - (active) <i class="pi pi-user ml-2"></i>
+        </ng-template>
+      </p-chips>
 
     </p-fieldset>
   </div>

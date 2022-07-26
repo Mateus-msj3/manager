@@ -9,7 +9,8 @@
 
 .title {
   margin-top: 100px;
-  margin-left: 10px;
+  margin-left: 0px;
+  color: #060649;
 }
 
 .radio {
@@ -28,4 +29,9 @@
 :host ::ng-deep .p-cell-editing {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+.label-data {
+  margin-top: 10px;
+  margin-bottom: 60px;
 }

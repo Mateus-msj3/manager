@@ -11,6 +11,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {FieldsetModule} from 'primeng/fieldset';
 import {CardModule} from "primeng/card";
+import {ChipsModule} from "primeng/chips";
 
 
 
@@ -42,6 +43,7 @@ const routes: Routes = [
     RadioButtonModule,
     FieldsetModule,
     CardModule,
+    ChipsModule,
   ]
 })
 export class SectorModule { }

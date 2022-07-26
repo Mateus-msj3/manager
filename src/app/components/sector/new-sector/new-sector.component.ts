@@ -20,14 +20,7 @@ export class NewSectorComponent implements OnInit {
 
   isInativo: any;
 
-  products1?: Product[];
-
-  products2?: Product[];
-
-  statuses?: SelectItem[];
-
-  clonedProducts: { [s: string]: Product; } = {};
-  value3: any;
+  values3: any;
 
   constructor() { }
 
