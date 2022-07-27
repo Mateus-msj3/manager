@@ -51,7 +51,8 @@ export class NavbarComponent implements OnInit {
         items: [
           {
             label: 'List',
-            icon: 'pi pi-fw pi-th-large'
+            icon: 'pi pi-fw pi-th-large',
+            routerLink:'/list-sector'
           },
           {
             label: 'New',
@@ -64,10 +65,12 @@ export class NavbarComponent implements OnInit {
           {
             label: 'Report',
             icon: 'pi pi-fw pi-external-link'
-          }
+          },
+
 
         ]
       },
+      
       {
         label: 'Profile',
         icon: 'pi pi-fw pi-user',
@@ -75,7 +78,8 @@ export class NavbarComponent implements OnInit {
 
       {
         label: 'Quit',
-        icon: 'pi pi-fw pi-power-off'
+        icon: 'pi pi-fw pi-power-off',
+        routerLink:'/login'
       }
     ];
 

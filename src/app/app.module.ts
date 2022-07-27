@@ -12,7 +12,7 @@ import {HomeComponent} from './components/home/home.component';
 import {MenubarModule} from 'primeng/menubar';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {SectorModule} from "./components/sector/module/sector.module";
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 
 @NgModule({

@@ -22,9 +22,20 @@ export class NewSectorComponent implements OnInit {
 
   values3: any;
 
+  cities: any[] = [];
+
+  selectedCities3: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.cities = [
+      {name: 'New York', code: 'NY'},
+      {name: 'Rome', code: 'RM'},
+      {name: 'London', code: 'LDN'},
+      {name: 'Istanbul', code: 'IST'},
+      {name: 'Paris', code: 'PRS'}
+    ];
   }
 
 }

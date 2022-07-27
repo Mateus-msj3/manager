@@ -42,12 +42,13 @@
   <div class="p-fluid col-12 md:col-12">
     <p-fieldset legend="Adicionar Cargos" [toggleable]="true">
 
-      <h5>Digite o nome do cargo</h5>
-      <p-chips [(ngModel)]="values3">
-        <ng-template let-item pTemplate="item">
-          {{item}} - (active) <i class="pi pi-user ml-2"></i>
-        </ng-template>
-      </p-chips>
+      <h5>Selecione o cargo</h5>
+      <p-multiSelect [options]="cities"
+                     [(ngModel)]="selectedCities3"
+                     defaultLabel="Selecione o Cargo"
+                     optionLabel="name"
+                     display="chip">
+      </p-multiSelect>
 
     </p-fieldset>
   </div>
