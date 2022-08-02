@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SelectItem} from "primeng/api";
+import {MenuItem, MessageService, SelectItem} from "primeng/api";
 
 class Product {
 }
@@ -26,16 +26,66 @@ export class NewSectorComponent implements OnInit {
 
   selectedCities3: any;
 
-  constructor() { }
+  items: MenuItem[] = [];
+
+  displayResponsive: boolean = false;
+
+  val2: any;
+
+  value9: number = 150;
+
+  visibleCardOffice = false;
+
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.cities = [
-      {name: 'New York', code: 'NY'},
-      {name: 'Rome', code: 'RM'},
-      {name: 'London', code: 'LDN'},
-      {name: 'Istanbul', code: 'IST'},
-      {name: 'Paris', code: 'PRS'}
+    this.menuItems();
+  }
+
+  menuItems() {
+    this.items = [
+      {
+        label: 'Options',
+        items: [{
+          label: 'Update',
+          icon: 'pi pi-refresh',
+          command: () => {
+            this.update();
+          }
+        },
+          {
+            label: 'Delete',
+            icon: 'pi pi-times',
+            command: () => {
+              this.delete();
+            }
+          }
+        ]},
+      {
+        label: 'Navigate',
+        items: [{
+          label: 'Angular',
+          icon: 'pi pi-external-link',
+          url: 'http://angular.io'
+        },
+          {
+            label: 'Router',
+            icon: 'pi pi-upload',
+            routerLink: '/fileupload'
+          }
+        ]}
     ];
   }
 
+  update() {
+    this.messageService.add({severity:'success', summary:'Success', detail:'Data Updated'});
+  }
+
+  delete() {
+    this.messageService.add({severity:'warn', summary:'Delete', detail:'Data Deleted'});
+  }
+
+  showResponsiveDialog() {
+    this.displayResponsive = true;
+  }
 }

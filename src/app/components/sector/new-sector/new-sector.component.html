@@ -31,7 +31,7 @@
 
   <div class="p-fluid col-12 md:col-8">
     <div class="radio">
-      <label  class="label-radio">Status:</label>
+      <label class="label-radio">Status:</label>
       <p-radioButton name="groupname" value="val1" label="Ativo" [(ngModel)]="isAtivo"
                      class="radio-button"></p-radioButton>
       <p-radioButton name="groupname" value="val1" label="Inativo" [(ngModel)]="isInativo"
@@ -42,15 +42,66 @@
   <div class="p-fluid col-12 md:col-12">
     <p-fieldset legend="Adicionar Cargos" [toggleable]="true">
 
-      <h5>Selecione o cargo</h5>
-      <p-multiSelect [options]="cities"
-                     [(ngModel)]="selectedCities3"
-                     defaultLabel="Selecione o Cargo"
-                     optionLabel="name"
-                     display="chip">
-      </p-multiSelect>
+      <div class="p-fluid col-12 md:col-4">
+        <div class="">
+          <p-button (click)="showResponsiveDialog()" class="button" label="Add" icon="pi pi-external-link"
+                    iconPos="right"></p-button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="p-fluid col-12 md:col-4">
+          <p-panel header="Cargo" [toggleable]="true" *ngIf="visibleCardOffice">
+            <ng-template pTemplate="icons">
+              <button pButton class="p-panel-header-icon p-link" (click)="menu.toggle($event)">
+                <span class="pi pi-cog"></span>
+              </button>
+              <p-menu #menu id="config_menu" [model]="items" [popup]="true"></p-menu>
+            </ng-template>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </p-panel>
+        </div>
+      </div>
+      <p-toast></p-toast>
 
     </p-fieldset>
   </div>
+
+  <p-dialog header="Informações sobre o Cargo" [(visible)]="displayResponsive" [breakpoints]="{'960px': '75vw'}"
+            [style]="{width: '60vw', height: '30vw'}"
+            [draggable]="false" [resizable]="false">
+
+    <div class="input-office p-inputgroup">
+      <span class="p-float-label">
+        <input class="input" id="float-input-office" type="text" pInputText [(ngModel)]="value2">
+        <label for="float-input-office">Nome</label>
+      </span>
+    </div>
+
+    <div class="grid p-fluid">
+      <div class="p-fluid col-12 md:col-6">
+        <label for="currency-us">Salário Minímo</label>
+        <p-inputNumber [(ngModel)]="value9" inputId="currency-us" mode="currency" currency="BRL" locale="en-US">
+        </p-inputNumber>
+      </div>
+
+      <div class="p-fluid col-12 md:col-6">
+        <label for="currency-us">Salário Máximo</label>
+        <p-inputNumber [(ngModel)]="value9" inputId="currency-us" mode="currency" currency="BRL" locale="en-US">
+        </p-inputNumber>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button (click)="displayResponsive=false" label="No" styleClass="p-button-text"></p-button>
+      <p-button (click)="displayResponsive=false" label="Yes" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
 
 </div>

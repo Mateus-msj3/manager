@@ -23,7 +23,9 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {DialogModule} from "primeng/dialog";
 import {RatingModule} from "primeng/rating";
 import {ConfirmationService, MessageService} from "primeng/api";
-import {MultiSelectModule} from 'primeng/multiselect';
+import {PanelModule} from 'primeng/panel';
+import {MenuModule} from "primeng/menu";
+import {InputMaskModule} from "primeng/inputmask";
 
 
 
@@ -69,7 +71,9 @@ const routes: Routes = [
     InputNumberModule,
     DialogModule,
     RatingModule,
-    MultiSelectModule,
+    PanelModule,
+    MenuModule,
+    InputMaskModule,
   ]
 })
 export class SectorModule { }
