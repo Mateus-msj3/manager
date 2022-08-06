@@ -13,7 +13,8 @@
 }
 
 :host ::ng-deep .ui-menubar{
-  background-image: linear-gradient(to right, rgb(99, 122, 229) 0%, rgb(252, 255, 255) 100%);
+  //background-image: linear-gradient(to right, rgb(99, 122, 229) 0%, rgb(252, 255, 255) 100%);
+  background-image: linear-gradient(to right, rgb(106, 90, 205) 0%, rgb(169, 169, 169) 100%);
   color: #f1f1f5 !important;
   position: fixed;
   top: 0;
