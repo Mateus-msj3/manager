@@ -13,6 +13,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {SectorModule} from "./components/sector/module/sector.module";
 import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {EmployeeModule} from "./components/employee/module/employee.module";
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
     MenubarModule,
     TabMenuModule,
     SectorModule,
+    EmployeeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

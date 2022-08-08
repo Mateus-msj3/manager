@@ -35,6 +35,7 @@ export class NavbarComponent implements OnInit {
           {
             label: 'New',
             icon: 'pi pi-fw pi-plus',
+            routerLink:'/new-employee'
           },
           {
             separator: true
@@ -70,7 +71,7 @@ export class NavbarComponent implements OnInit {
 
         ]
       },
-      
+
       {
         label: 'Profile',
         icon: 'pi pi-fw pi-user',

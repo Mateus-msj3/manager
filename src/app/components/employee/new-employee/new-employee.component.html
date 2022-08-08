@@ -1,0 +1,226 @@
+<!-- HEADER --->
+<div class="grid p-fluid title">
+  <div class="p-fluid col-12 md:col-8">
+    <h2 class="">Cadastro de Setores</h2>
+  </div>
+
+  <div class="p-fluid col-12 md:col-4">
+    <div class="">
+      <p-button class="button" label="Save" icon="pi pi-check" iconPos="right"></p-button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN --->
+<div class="grid p-fluid">
+
+  <div class="p-fluid col-12 md:col-12">
+    <p-tabView>
+      <p-tabPanel header="Dados Pessoais">
+
+
+        <div class="grid p-fluid">
+          <div class="p-fluid col-12 md:col-12">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input" id="float-input" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input">Nome</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="input-cpf p-fluid col-12 md:col-4">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input-cpf" id="float-input2" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input2">CPF</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <label for="icon1" class="label-data">Data de Nascimento</label>
+              <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon1"></p-calendar>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <label for="icon1" class="label-data">Sexo</label>
+              <p-dropdown [options]="cities"
+                          [(ngModel)]="selectedCity1"
+                          placeholder="Select a City"
+                          optionLabel="name"
+                          [showClear]="true">
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="input p-fluid col-12 md:col-6">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input" id="float-input-email" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-email">Email</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="input p-fluid col-12 md:col-6">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input" id="float-input-avatar" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-avatar">Url do Avatar</label>
+            </span>
+            </div>
+          </div>
+        </div>
+
+      </p-tabPanel>
+
+      <p-tabPanel header="Endereço">
+        <div class="grid p-fluid">
+          <div class="p-fluid col-12 md:col-4">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input" id="float-input-cep" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-cep">CEP</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <p-dropdown [options]="cities"
+                          [(ngModel)]="selectedCity1"
+                          placeholder="Selecione a Cidade"
+                          optionLabel="name"
+                          [showClear]="true">
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <p-dropdown [options]="cities"
+                          [(ngModel)]="selectedCity1"
+                          placeholder="Selecione o Estado"
+                          optionLabel="name"
+                          [showClear]="true">
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="input-cpf p-fluid col-12 md:col-8">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input-cpf" id="float-input-logradouro" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-logradouro">Logradouro</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="input-cpf p-fluid col-12 md:col-1">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input-cpf" id="float-input-numero" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-numero">Número</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="input-cpf p-fluid col-12 md:col-3">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input-cpf" id="float-input-bairro" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-logradouro">Bairro</label>
+            </span>
+            </div>
+          </div>
+
+          <div class="input-cpf p-fluid col-12 md:col-8">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input-cpf" id="float-input-complemento" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-complemento">Complemento</label>
+            </span>
+            </div>
+          </div>
+
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Contrato">
+
+        <div class="grid p-fluid">
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <label for="icon1" class="label-data">Data de Admissão</label>
+              <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon1"></p-calendar>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <label for="icon1" class="label-data">Data de Recisão</label>
+              <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon1"></p-calendar>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div class="radio">
+              <label class="label-radio">Status:</label>
+              <p-radioButton name="groupname" value="val1" label="Ativo" [(ngModel)]="isAtivo"
+                             class="radio-button"></p-radioButton>
+              <p-radioButton name="groupname" value="val1" label="Inativo" [(ngModel)]="isInativo"
+                             class="radio-button"></p-radioButton>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <p-dropdown [options]="cities"
+                          [(ngModel)]="selectedCity1"
+                          placeholder="Selecione o Tipo de Contrato"
+                          optionLabel="name"
+                          [showClear]="true">
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <p-dropdown [options]="cities"
+                          [(ngModel)]="selectedCity1"
+                          placeholder="Selecione o Setor"
+                          optionLabel="name"
+                          [showClear]="true">
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="p-fluid col-12 md:col-4">
+            <div>
+              <p-dropdown [options]="cities"
+                          [(ngModel)]="selectedCity1"
+                          placeholder="Selecione o Cargo"
+                          optionLabel="name"
+                          [showClear]="true">
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="input p-fluid col-12 md:col-4">
+            <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input" id="float-input-salario" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input-email">Salário</label>
+            </span>
+            </div>
+          </div>
+
+        </div>
+
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>
