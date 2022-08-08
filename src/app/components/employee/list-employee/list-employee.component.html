@@ -1,0 +1,83 @@
+<!-- HEADER --->
+<div class="grid p-fluid title">
+  <div class="p-fluid col-12 md:col-8">
+    <h2 class="">Filtro de Funcionários</h2>
+  </div>
+
+  <div class="p-fluid col-12 md:col-4">
+    <div class="">
+      <p-button class="button" label="Filtrar" icon="pi pi-search" iconPos="right"></p-button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN --->
+<div class="grid p-fluid">
+
+  <div class="p-fluid col-12 md:col-12">
+    <p-fieldset legend="Filtrar Por:" [toggleable]="true">
+      <div class="">
+        <p-radioButton name="groupname" value="val1" label="Nome" [(ngModel)]="isAtivo"
+                       class="radio-button"></p-radioButton>
+        <p-radioButton name="groupname" value="val1" label="CPF" [(ngModel)]="isInativo"
+                       class="radio-button"></p-radioButton>
+        <p-radioButton name="groupname" value="val1" label="Setor" [(ngModel)]="isInativo"
+                       class="radio-button"></p-radioButton>
+        <p-radioButton name="groupname" value="val1" label="Cargo" [(ngModel)]="isInativo"
+                       class="radio-button"></p-radioButton>
+      </div>
+
+    </p-fieldset>
+
+  </div>
+
+  <div class="p-fluid col-12 md:col-12">
+
+    <div class="grid p-fluid">
+      <div class="p-fluid col-12 md:col-9">
+        <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input" id="float-input" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input">Nome</label>
+            </span>
+        </div>
+      </div>
+
+      <div class="input p-fluid col-12 md:col-4">
+        <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input class="input-cpf" id="float-input2" type="text" pInputText [(ngModel)]="value2">
+              <label for="float-input2">CPF</label>
+            </span>
+        </div>
+      </div>
+
+      <div class="input p-fluid col-12 md:col-4">
+        <div>
+          <p-dropdown [options]="cities"
+                      [(ngModel)]="selectedCity1"
+                      placeholder="Selecione o Setor"
+                      optionLabel="name"
+                      [showClear]="true">
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="input p-fluid col-12 md:col-4">
+        <div>
+          <p-dropdown [options]="cities"
+                      [(ngModel)]="selectedCity1"
+                      placeholder="Selecione o Cargo"
+                      optionLabel="name"
+                      [showClear]="true">
+          </p-dropdown>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</div>

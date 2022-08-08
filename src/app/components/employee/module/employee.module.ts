@@ -9,27 +9,32 @@ import {InputTextModule} from "primeng/inputtext";
 import {CalendarModule} from "primeng/calendar";
 import {DropdownModule} from "primeng/dropdown";
 import {RadioButtonModule} from "primeng/radiobutton";
+import {ListEmployeeComponent} from "../list-employee/list-employee.component";
+import {FieldsetModule} from "primeng/fieldset";
 
 const routes: Routes = [
-  {path: "new-employee", component: NewEmployeeComponent}
+  {path: "new-employee", component: NewEmployeeComponent},
+  {path: "list-employee", component: ListEmployeeComponent},
 ];
 
 @NgModule({
   declarations: [
     NewEmployeeComponent,
+    ListEmployeeComponent,
   ],
   providers:[],
-    imports: [
-        CommonModule,
-        RouterModule,
-        RouterModule.forRoot(routes),
-        TabViewModule,
-        ButtonModule,
-        FormsModule,
-        InputTextModule,
-        CalendarModule,
-        DropdownModule,
-        RadioButtonModule,
-    ]
+  imports: [
+    CommonModule,
+    RouterModule,
+    RouterModule.forRoot(routes),
+    TabViewModule,
+    ButtonModule,
+    FormsModule,
+    InputTextModule,
+    CalendarModule,
+    DropdownModule,
+    RadioButtonModule,
+    FieldsetModule,
+  ]
 })
 export class EmployeeModule { }

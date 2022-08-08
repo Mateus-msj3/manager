@@ -1,0 +1,35 @@
+.grid {
+  margin-top: 10px;
+}
+
+.input {
+  margin-top: 20px;
+}
+
+.title {
+  margin-top: 100px;
+  margin-left: 0px;
+  color: #060649;
+}
+
+.radio {
+  margin: 30px 0px 30px 10px;
+}
+
+.radio-button {
+  margin-left: 20px;
+}
+
+:host ::ng-deep .p-cell-editing {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.label-data {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.tab-view {
+  margin: 10px 10px 0px 10px;
+}

@@ -30,7 +30,8 @@ export class NavbarComponent implements OnInit {
         items: [
           {
             label: 'List',
-            icon: 'pi pi-users'
+            icon: 'pi pi-users',
+            routerLink:'/list-employee'
           },
           {
             label: 'New',
