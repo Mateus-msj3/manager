@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from "primeng/api";
+import {Sector} from "../../../shared/models/sector";
+import {SectorService} from "../service/sector.service";
 
 @Component({
   selector: 'app-list-sector',
@@ -8,41 +10,83 @@ import {MessageService} from "primeng/api";
 })
 export class ListSectorComponent implements OnInit {
 
-  Delete: any;
-  products: any[] = [];
-  selectedProducts: any;
-  productDialog: any;
-  product!: string;
-  submitted!: boolean;
-  statuses: any[] = [];
-  num!: number;
+  sectorDialog: boolean = false;
 
-  constructor(private messageService: MessageService) { }
+  sectors: Sector[] = [];
+
+  sector: Sector = new Sector();
+
+  submitted: boolean = false;
+
+  selectedSectors: Sector[] = [];
+
+  hideTableGridSector: boolean = false;
+
+  isAtivo: any;
+
+  isInativo: any;
+
+  value2: any;
+
+  optionListAll!: boolean;
+
+  optionListByName!: boolean;
+
+  optionListByStatus!: boolean;
+
+  constructor(private messageService: MessageService, private sectorService: SectorService) { }
 
   ngOnInit(): void {
   }
 
-  openNew() {
+  filter() {
+    if (this.optionListAll) {
+      this.getAll();
+    }else if (this.optionListByName) {
+      this.listByName(this.sector.name);
+    } else {
+      this.hideDialogTableListAndEdit();
+    }
+  }
+
+  getAll() {
+    this.sectorService.findAll().subscribe(list => {
+      if (list.length != null && list.length > 0) {
+        this.sectors = list;
+        this.hideDialogTableListAndEdit();
+      }
+    });
+  }
+
+  listByName(name: string) {
+    this.sectorService.findByName(name).subscribe(s => {
+      this.sectors.push(s);
+      this.hideDialogTableListAndEdit();
+    });
+  }
+
+  hideDialogTableListAndEdit() {
+    this.hideTableGridSector = true;
+  }
+
+  hideDialogSector() {
 
   }
 
-  deleteSelectedProducts() {
+  saveSector() {
 
   }
 
-  editProduct(product: any) {
+  editSector(sector: Sector) {
 
   }
 
-  deleteProduct(product: any) {
+  deleteSector(sector: Sector) {
 
   }
 
-  hideDialog() {
+  deleteSelectedSectors() {
 
   }
 
-  saveProduct() {
-
-  }
 }

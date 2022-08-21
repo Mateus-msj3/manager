@@ -26,8 +26,8 @@ import {ConfirmationService, MessageService} from "primeng/api";
 import {PanelModule} from 'primeng/panel';
 import {MenuModule} from "primeng/menu";
 import {InputMaskModule} from "primeng/inputmask";
-
-
+import {SectorService} from "../service/sector.service";
+import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
@@ -49,6 +49,7 @@ const routes: Routes = [
   providers:[
     MessageService,
     ConfirmationService,
+    SectorService,
   ],
   imports: [
     CommonModule,
@@ -56,6 +57,7 @@ const routes: Routes = [
     InputTextModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     ButtonModule,
     CalendarModule,
     BrowserAnimationsModule,

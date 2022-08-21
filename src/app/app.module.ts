@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CardModule} from 'primeng/card';
@@ -14,6 +13,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import {SectorModule} from "./components/sector/module/sector.module";
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {EmployeeModule} from "./components/employee/module/employee.module";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -28,6 +28,7 @@ import {EmployeeModule} from "./components/employee/module/employee.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CardModule,
     InputTextModule,
     ButtonModule,

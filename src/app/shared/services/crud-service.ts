@@ -3,9 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {CrudOperations} from "../interfaces/crud-operations";
 import {Observable} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
 export abstract class CrudService<T, ID> implements CrudOperations<T, ID>{
 
   constructor(protected _http: HttpClient, protected _baseUrl: string) {
