@@ -14,6 +14,9 @@ import {SectorModule} from "./components/sector/module/sector.module";
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {EmployeeModule} from "./components/employee/module/employee.module";
 import {HttpClientModule} from "@angular/common/http";
+import {AuthService} from "./shared/services/auth.service";
+import {FormsModule} from "@angular/forms";
+import {DialogModule} from "primeng/dialog";
 
 
 @NgModule({
@@ -25,19 +28,23 @@ import {HttpClientModule} from "@angular/common/http";
     DashboardComponent,
   ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CardModule,
-    InputTextModule,
-    ButtonModule,
-    MenubarModule,
-    TabMenuModule,
-    SectorModule,
-    EmployeeModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CardModule,
+        InputTextModule,
+        ButtonModule,
+        MenubarModule,
+        TabMenuModule,
+        SectorModule,
+        EmployeeModule,
+        FormsModule,
+        DialogModule,
+    ],
+  providers: [
+    AuthService,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

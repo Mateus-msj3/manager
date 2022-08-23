@@ -1,35 +1,43 @@
-<div class="container">
+<div class="grid p-fluid col-12 md:col-12">
 
-    <div class="card-login">
+  {{authService.jwtPayload | json}}
 
-        <p-card class="fields">
+  <div class="card-form">
+    <p-card class="card-login p-fluid col-12 md:col-12">
 
-            <h1 class="title-login">Login</h1>
-            <br>
+      <ng-template pTemplate="header">
+        <br>
+        <h1 class="title-login">Login</h1>
+      </ng-template>
 
+      <form #f="ngForm" (ngSubmit)="tryLogin()">
+        <div class="p-fluid col-12 md:col-12 input">
+          <div class="p-inputgroup">
             <span class="p-float-label">
-                <input id="float-input-user" type="text" pInputText class="input">
-                <label for="float-input-user">Username</label>
+              <input class="input" id="float-input-username" type="text" pInputText [(ngModel)]="username" name="username">
+              <label for="float-input-username">Nome</label>
             </span>
+          </div>
+        </div>
 
-            <br>
-            <br>
-
+        <div class="p-fluid col-12 md:col-12">
+          <div class="p-inputgroup">
             <span class="p-float-label">
-                <input id="float-input-password" type="password" pInputText class="input">
-                <label for="float-input-password">Password</label>
+              <input class="input" id="float-input-password" type="password" pInputText [(ngModel)]="password" name="password">
+              <label for="float-input-password">Senha</label>
             </span>
+          </div>
+        </div>
 
-            <br>
+        <div class="p-fluid col-12 md:col-12">
+          <div class="">
+            <p-button class="button" label="Login" type="submit"></p-button>
+          </div>
+        </div>
 
-            <button pButton type="button" label="Login" class="button"></button>
+      </form>
 
-            <br>
-
-            <p class="link-register">Não tem conta? <a href="">Cadastre-se</a></p>
-            
-        </p-card>
-
-    </div>
+    </p-card>
+  </div>
 
 </div>

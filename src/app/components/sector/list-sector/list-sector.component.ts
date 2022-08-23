@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from "primeng/api";
 import {Sector} from "../../../shared/models/sector";
 import {SectorService} from "../service/sector.service";
+import {Office} from "../../../shared/models/office";
 
 @Component({
   selector: 'app-list-sector',
@@ -15,6 +16,10 @@ export class ListSectorComponent implements OnInit {
   sectors: Sector[] = [];
 
   sector: Sector = new Sector();
+
+  office: Office = new Office();
+
+  offices: Office[] = [];
 
   submitted: boolean = false;
 

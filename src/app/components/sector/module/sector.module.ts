@@ -30,9 +30,7 @@ import {SectorService} from "../service/sector.service";
 import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
-  {path: "dashboard", component: DashboardComponent},
   {path: "new-sector", component: NewSectorComponent},
-  {path: "login", component: LoginComponent},
   {path: "list-sector", component: ListSectorComponent},
 ];
 
