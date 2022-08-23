@@ -16,7 +16,9 @@ export class AuthService {
   jwtHelper: JwtHelperService = new JwtHelperService();
   jwtPayload: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.loadToken();
+  }
 
   login(username: string, password: string): Observable<any> {
     const params = new HttpParams()
@@ -31,8 +33,25 @@ export class AuthService {
     return this.http.post(this.oAuthTokenUrl, params.toString(), {headers});
   }
 
-  storeToken(token: string) {
-    this.jwtPayload = this.jwtHelper.decodeToken(token);
+  loadToken() {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      const tokenToJson = JSON.parse(token).access_token;
+      return tokenToJson;
+    }
+    return null;
+  }
+
+  clearToken() {
+    localStorage.removeItem('access_token');
+  }
+
+  getUserAuthenticated() {
+    const token = this.loadToken();
+    if (token) {
+      const username = this.jwtHelper.decodeToken(token).user_name;
+      return username;
+    }
   }
 
 }

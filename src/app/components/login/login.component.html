@@ -1,7 +1,5 @@
 <div class="grid p-fluid col-12 md:col-12">
 
-  {{authService.jwtPayload | json}}
-
   <div class="card-form">
     <p-card class="card-login p-fluid col-12 md:col-12">
 
@@ -31,7 +29,7 @@
 
         <div class="p-fluid col-12 md:col-12">
           <div class="">
-            <p-button class="button" label="Login" type="submit"></p-button>
+            <p-button class="button" label="Login" type="submit" [disabled]="!password"></p-button>
           </div>
         </div>
 

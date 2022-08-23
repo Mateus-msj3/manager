@@ -5,7 +5,7 @@
     </ng-template>
     <ng-template pTemplate="end">
       <div style="display: flex">
-        <p class="nome-usuario">Nome do Usuário</p>
+        <p class="nome-usuario">{{ authService.getUserAuthenticated() }}</p>
         <i class="pi pi-user"></i>
       </div>
     </ng-template>
