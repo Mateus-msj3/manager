@@ -17,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./shared/services/auth.service";
 import {FormsModule} from "@angular/forms";
 import {DialogModule} from "primeng/dialog";
+import {ShareModule} from "./shared/module/share.module";
 
 
 @NgModule({
@@ -28,20 +29,21 @@ import {DialogModule} from "primeng/dialog";
     DashboardComponent,
   ],
 
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        CardModule,
-        InputTextModule,
-        ButtonModule,
-        MenubarModule,
-        TabMenuModule,
-        SectorModule,
-        EmployeeModule,
-        FormsModule,
-        DialogModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CardModule,
+    InputTextModule,
+    ButtonModule,
+    MenubarModule,
+    TabMenuModule,
+    SectorModule,
+    EmployeeModule,
+    FormsModule,
+    DialogModule,
+    ShareModule,
+  ],
   providers: [
     AuthService,
   ],

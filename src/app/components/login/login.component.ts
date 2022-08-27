@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
+import {ToastyService} from "ng2-toasty";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,10 @@ export class LoginComponent implements OnInit {
 
   errors!: string[];
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService,
+              private router: Router,
+              private toastyService: ToastyService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -29,6 +33,7 @@ export class LoginComponent implements OnInit {
 
   tryLogin() {
     this.authService.login(this.username, this.password).subscribe(result => {
+      this.toastyService.success("Sucesso!")
       this.storeToken(result);
       this.router.navigate(['/dashboard']);
 
