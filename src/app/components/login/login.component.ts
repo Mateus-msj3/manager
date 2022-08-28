@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
-import {ToastyService} from "ng2-toasty";
+import {NotificationService} from "../../shared/services/notification.service";
+import {MessageService} from "primeng/api";
+import {NotificationType} from "../../shared/models/notification-type";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private router: Router,
-              private toastyService: ToastyService,
+              private notificationService: NotificationService,
+              private messageService: MessageService,
   ) {
   }
 
@@ -33,18 +36,35 @@ export class LoginComponent implements OnInit {
 
   tryLogin() {
     this.authService.login(this.username, this.password).subscribe(result => {
-      this.toastyService.success("Sucesso!")
       this.storeToken(result);
       this.router.navigate(['/dashboard']);
 
     }, response => {
       if (response.status === 400) {
         if (response.error.error === 'invalid_grant') {
-          this.errors = ['Usuário e/ou senha inválidos'];
+          this.showInvalidLoginErrorMessage();
         }
       } else {
-        this.errors = ['Erro inesperado, contate ao suporte!'];
+        this.showErrorMessage();
       }
     });
   }
+
+  showInvalidLoginErrorMessage() {
+    this.notificationService.sendMessage({
+      title: "Erro",
+      message: "Usuário e/ou senha inválidos",
+      type: NotificationType.error,
+      options: {closeButton: true, progressBar: true}
+    });
+  }
+
+  showErrorMessage() {
+    this.notificationService.sendMessage({
+      message: "Ocorreu um erro, por favor entre em contato com o suporte.",
+      type: NotificationType.error,
+      options: {closeButton: true, progressBar: true}
+    });
+  }
+
 }

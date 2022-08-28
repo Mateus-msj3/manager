@@ -18,6 +18,8 @@ import {AuthService} from "./shared/services/auth.service";
 import {FormsModule} from "@angular/forms";
 import {DialogModule} from "primeng/dialog";
 import {ShareModule} from "./shared/module/share.module";
+import {ToastModule} from "primeng/toast";
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import {ShareModule} from "./shared/module/share.module";
     FormsModule,
     DialogModule,
     ShareModule,
+    ToastModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     AuthService,
