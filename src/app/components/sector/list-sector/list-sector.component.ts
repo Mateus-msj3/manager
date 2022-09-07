@@ -39,6 +39,8 @@ export class ListSectorComponent implements OnInit {
 
   optionListByStatus!: boolean;
 
+  hideTableGridOffice: boolean = false;
+
   constructor(private messageService: MessageService, private sectorService: SectorService) { }
 
   ngOnInit(): void {
@@ -50,6 +52,7 @@ export class ListSectorComponent implements OnInit {
     }else if (this.optionListByName) {
       this.listByName(this.sector.name);
     } else {
+      this.hideTableGridOffice = true;
       this.hideDialogTableListAndEdit();
     }
   }
@@ -94,4 +97,15 @@ export class ListSectorComponent implements OnInit {
 
   }
 
+  onRowEditInit(office: any) {
+
+  }
+
+  onRowEditSave(office: any) {
+
+  }
+
+  onRowEditCancel(office: any, ri: any) {
+
+  }
 }
