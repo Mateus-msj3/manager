@@ -20,65 +20,59 @@ export class NavbarComponent implements OnInit {
     this.items = [
       {
         label: 'Dashboard',
-        icon: 'pi pi-fw pi-file',
+        icon: 'pi pi-chart-bar',
         styleClass:"ui-menuitem-text",
         routerLink:'/dashboard'
       },
       {
-        label: 'Employee',
-        icon: 'pi pi-fw pi-file',
+        label: 'Funcionários',
+        icon: 'pi pi-user-edit',
         style:{'color': 'white'},
         items: [
           {
-            label: 'List',
+            label: 'Listar',
             icon: 'pi pi-users',
-            routerLink:'/list-employee'
+            routerLink:'/listar-funcionario'
           },
           {
-            label: 'New',
+            label: 'Novo',
             icon: 'pi pi-fw pi-plus',
-            routerLink:'/new-employee'
+            routerLink:'/novo-funcionario'
           },
           {
             separator: true
           },
           {
-            label: 'Report',
-            icon: 'pi pi-fw pi-external-link'
+            label: 'Relatórios',
+            icon: 'pi pi-file-pdf'
           }
         ]
       },
       {
-        label: 'Sector',
+        label: 'Setor',
         icon: 'pi pi-fw pi-calendar',
         items: [
           {
-            label: 'List',
+            label: 'Listar',
             icon: 'pi pi-fw pi-th-large',
-            routerLink:'/list-sector'
+            routerLink:'/listar-setor'
           },
           {
-            label: 'New',
+            label: 'Novo',
             icon: 'pi pi-fw pi-plus',
-            routerLink:'/new-sector'
+            routerLink:'/novo-setor'
           },
           {
             separator: true
           },
           {
-            label: 'Report',
-            icon: 'pi pi-fw pi-external-link'
+            label: 'Relatórios',
+            icon: 'pi pi-file-pdf'
           },
 
 
         ]
       },
-
-      {
-        label: 'Profile',
-        icon: 'pi pi-fw pi-user',
-      },
-
       {
         label: 'Quit',
         icon: 'pi pi-fw pi-power-off',

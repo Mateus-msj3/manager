@@ -30,8 +30,8 @@ import {SectorService} from "../service/sector.service";
 import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
-  {path: "new-sector", component: NewSectorComponent},
-  {path: "list-sector", component: ListSectorComponent},
+  {path: "novo-setor", component: NewSectorComponent},
+  {path: "listar-setor", component: ListSectorComponent},
 ];
 
 @NgModule({

@@ -13,8 +13,8 @@ import {ListEmployeeComponent} from "../list-employee/list-employee.component";
 import {FieldsetModule} from "primeng/fieldset";
 
 const routes: Routes = [
-  {path: "new-employee", component: NewEmployeeComponent},
-  {path: "list-employee", component: ListEmployeeComponent},
+  {path: "novo-funcionario", component: NewEmployeeComponent},
+  {path: "listar-funcionario", component: ListEmployeeComponent},
 ];
 
 @NgModule({
