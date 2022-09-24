@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem, MessageService, SelectItem} from "primeng/api";
 
-class Product {
-}
 
 @Component({
   selector: 'app-new-sector',

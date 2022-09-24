@@ -13,13 +13,14 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import {SectorModule} from "./components/sector/module/sector.module";
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {EmployeeModule} from "./components/employee/module/employee.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./shared/services/auth.service";
 import {FormsModule} from "@angular/forms";
 import {DialogModule} from "primeng/dialog";
 import {ShareModule} from "./shared/module/share.module";
 import {ToastModule} from "primeng/toast";
 import {ToastrModule} from "ngx-toastr";
+import {TokenInterceptor} from "./interceptor/token.interceptor";
 
 
 @NgModule({
@@ -50,6 +51,11 @@ import {ToastrModule} from "ngx-toastr";
   ],
   providers: [
     AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

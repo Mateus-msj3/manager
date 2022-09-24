@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService,
               private router: Router,
               private notificationService: NotificationService,
-              private messageService: MessageService,
   ) {
   }
 
@@ -31,7 +30,6 @@ export class LoginComponent implements OnInit {
   storeToken(token: any) {
     const access_token = JSON.stringify(token);
     localStorage.setItem('access_token', access_token);
-    console.log(access_token)
   }
 
   tryLogin() {

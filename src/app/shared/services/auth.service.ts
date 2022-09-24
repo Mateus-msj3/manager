@@ -14,7 +14,6 @@ export class AuthService {
   appClientSecret: string = environment.api.clientSecret;
 
   jwtHelper: JwtHelperService = new JwtHelperService();
-  jwtPayload: any;
 
   constructor(private http: HttpClient) {
     this.loadToken();
