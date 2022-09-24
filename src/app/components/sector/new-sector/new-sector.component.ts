@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MenuItem, MessageService, SelectItem} from "primeng/api";
+import {Component, OnInit} from '@angular/core';
+import {ConfirmationService, ConfirmEventType, MenuItem, MessageService} from "primeng/api";
+import {Sector} from "../../../shared/models/sector";
+import {Office} from "../../../shared/models/office";
+import {SectorService} from "../service/sector.service";
 
 
 @Component({
@@ -8,33 +11,26 @@ import {MenuItem, MessageService, SelectItem} from "primeng/api";
   styleUrls: ['./new-sector.component.scss']
 })
 export class NewSectorComponent implements OnInit {
-  value2: any;
 
-  date3: any;
+  sector: Sector = new Sector();
 
-  selectedValue: any;
-
-  isAtivo: any;
-
-  isInativo: any;
-
-  values3: any;
-
-  cities: any[] = [];
-
-  selectedCities3: any;
+  office: Office = new Office();
 
   items: MenuItem[] = [];
 
-  displayResponsive: boolean = false;
+  isAtivo: boolean = true;
 
-  val2: any;
+  isInativo: boolean = false;
 
-  value9: number = 150;
+  displayFormOfficie: boolean = false;
 
-  visibleCardOffice = false;
+  position!: string;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService,
+              private sectorService: SectorService,
+              private confirmationService: ConfirmationService,) {
+
+  }
 
   ngOnInit(): void {
     this.menuItems();
@@ -48,14 +44,14 @@ export class NewSectorComponent implements OnInit {
           label: 'Update',
           icon: 'pi pi-refresh',
           command: () => {
-            this.update();
+            this.updateOfficie();
           }
         },
           {
             label: 'Delete',
             icon: 'pi pi-times',
             command: () => {
-              this.delete();
+              this.deleteOfficie();
             }
           }
         ]},
@@ -75,15 +71,90 @@ export class NewSectorComponent implements OnInit {
     ];
   }
 
-  update() {
+  save() {
+    this.validateFormSector(this.sector);
+    this.sectorService.save(this.sector).subscribe(response => {
+      this.messageService.add({severity:'success', summary:'Success', detail:'Setor cadastrado com sucesso!'});
+    });
+    this.resetFormSector();
+    this.resetFormOfficie();
+  }
+
+  addOfficie() {
+    this.validateFormOfficie(this.office);
+  }
+
+  updateOfficie() {
     this.messageService.add({severity:'success', summary:'Success', detail:'Data Updated'});
   }
 
-  delete() {
+  deleteOfficie() {
+    this.sector.offices.pop()
     this.messageService.add({severity:'warn', summary:'Delete', detail:'Data Deleted'});
   }
 
-  showResponsiveDialog() {
-    this.displayResponsive = true;
+  confirmPosition(position: string) {
+    this.position = position;
+    this.confirmationService.confirm({
+      message: 'Cargo adicionado com sucesso, deseja adicionar outro cargo ao setor?',
+      header: 'Adicionar novo Cargo',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.resetFormOfficie()
+      },
+      reject: (type: any) => {
+        switch(type) {
+          case ConfirmEventType.REJECT:
+            this.closeFormOfficie()
+            break;
+          case ConfirmEventType.CANCEL:
+            this.closeFormOfficie()
+            break;
+        }
+      },
+      key: "positionDialog"
+    });
   }
+
+  showFormOfficie() {
+    this.displayFormOfficie = true;
+  }
+
+  closeFormOfficie() {
+    this.displayFormOfficie = false;
+  }
+
+  resetFormSector() {
+    this.sector = new Sector();
+  }
+
+  validateFormSector(sector: Sector) {
+    if (sector.name == null || sector.name === "") {
+      return this.messageService.add({severity:'error', summary:'Rejected', detail:'É necessário informar o nome do Setor'});
+    }
+  }
+
+  validateFormOfficie(officie: Office) {
+
+    if (officie.name == null && officie.minimumSalaryRange == null && officie.maximumSalaryRange == null) {
+      return this.messageService.add({severity:'error', summary:'Rejected', detail:'É necessário informar todos os dados do Cargo'});
+
+    }else if(officie.name == null || officie.name === "") {
+      return this.messageService.add({severity:'error', summary:'Rejected', detail:'É necessário informar o nome do Cargo'});
+
+    }else if(officie.maximumSalaryRange == null || officie.maximumSalaryRange == null) {
+      return this.messageService.add({severity:'error', summary:'Rejected', detail:'É necessário informar o nome o range de Salário'});
+
+    }else {
+      this.sector.offices.push(this.office);
+      this.confirmPosition('left');
+    }
+
+  }
+
+  resetFormOfficie() {
+    this.office = new Office();
+  }
+
+
 }

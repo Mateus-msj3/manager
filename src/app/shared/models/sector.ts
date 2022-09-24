@@ -6,9 +6,9 @@ export class Sector {
 
   name!: string;
 
-  initDate!: Date;
+  initDate: Date = new Date();
 
-  situation!: boolean;
+  situation: boolean = true;
 
   offices: Office[] = [];
 
