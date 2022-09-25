@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MessageService} from "primeng/api";
 import {Sector} from "../../../shared/models/sector";
 import {SectorService} from "../service/sector.service";
 import {Office} from "../../../shared/models/office";
+import {FilterSectorDTO} from "../../../shared/dto/filter-sector-dto";
+import {OfficieService} from "../service/officie.service";
 
 @Component({
   selector: 'app-list-sector',
@@ -10,6 +12,8 @@ import {Office} from "../../../shared/models/office";
   styleUrls: ['./list-sector.component.scss']
 })
 export class ListSectorComponent implements OnInit {
+
+  filterSector: FilterSectorDTO = new FilterSectorDTO();
 
   sectorDialog: boolean = false;
 
@@ -27,54 +31,35 @@ export class ListSectorComponent implements OnInit {
 
   hideTableGridSector: boolean = false;
 
-  isAtivo: any;
+  isAtivo: boolean = true;
 
-  isInativo: any;
-
-  value2: any;
-
-  optionListAll!: boolean;
-
-  optionListByName!: boolean;
-
-  optionListByStatus!: boolean;
+  isInativo: boolean = false;
 
   hideTableGridOffice: boolean = false;
 
-  constructor(private messageService: MessageService, private sectorService: SectorService) { }
+  constructor(private messageService: MessageService, private sectorService: SectorService, private officeService: OfficieService) {
+  }
 
   ngOnInit(): void {
+    this.findAllOffice();
   }
 
   filter() {
-    if (this.optionListAll) {
-      this.getAll();
-    }else if (this.optionListByName) {
-      this.listByName(this.sector.name);
-    } else {
-      this.hideTableGridOffice = true;
-      this.hideDialogTableListAndEdit();
-    }
-  }
-
-  getAll() {
-    this.sectorService.findAll().subscribe(list => {
-      if (list.length != null && list.length > 0) {
-        this.sectors = list;
-        this.hideDialogTableListAndEdit();
+    this.sectorService.filterSector(this.filterSector).subscribe(response => {
+      if (response.length != null && response.length > 0) {
+        this.sectors = response;
       }
     });
   }
 
-  listByName(name: string) {
-    this.sectorService.findByName(name).subscribe(s => {
-      this.sectors.push(s);
-      this.hideDialogTableListAndEdit();
+  findAllOffice() {
+    this.officeService.findAll().subscribe(response => {
+      this.offices = response;
     });
   }
 
-  hideDialogTableListAndEdit() {
-    this.hideTableGridSector = true;
+  hideDialogTableListAndEditOffice() {
+    this.hideTableGridOffice = true;
   }
 
   hideDialogSector() {

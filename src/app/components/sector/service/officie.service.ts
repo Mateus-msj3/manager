@@ -5,22 +5,15 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {Observable} from "rxjs";
 import {FilterSectorDTO} from "../../../shared/dto/filter-sector-dto";
+import {Office} from "../../../shared/models/office";
 
 @Injectable({
   providedIn: 'root'
 })
-export class SectorService extends CrudService<Sector, number>{
+export class OfficieService extends CrudService<Office, number>{
 
   constructor(protected override _http: HttpClient) {
-    super(_http, `${environment.api.baseUrl}/sectors`);
-  }
-
-  findByName(name: string): Observable<Sector> {
-    return this._http.get<Sector>(this._baseUrl + "/" + name);
-  }
-
-  filterSector(filter: FilterSectorDTO): Observable<Sector[]> {
-    return this._http.get<Sector[]>(this._baseUrl + "/filterSector");
+    super(_http, `${environment.api.baseUrl}/offices`);
   }
 
 }

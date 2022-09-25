@@ -28,6 +28,7 @@ import {MenuModule} from "primeng/menu";
 import {InputMaskModule} from "primeng/inputmask";
 import {SectorService} from "../service/sector.service";
 import {HttpClientModule} from "@angular/common/http";
+import {OfficieService} from "../service/officie.service";
 
 const routes: Routes = [
   {path: "novo-setor", component: NewSectorComponent},
@@ -48,6 +49,7 @@ const routes: Routes = [
     MessageService,
     ConfirmationService,
     SectorService,
+    OfficieService
   ],
   imports: [
     CommonModule,
