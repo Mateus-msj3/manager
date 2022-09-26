@@ -16,4 +16,8 @@ export class OfficieService extends CrudService<Office, number>{
     super(_http, `${environment.api.baseUrl}/offices`);
   }
 
+  findOfficeBySector(id: number): Observable<Office[]> {
+    return this._http.get<Office[]>(this._baseUrl + "/idSector" + "/" + id);
+  }
+
 }

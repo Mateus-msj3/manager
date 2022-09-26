@@ -110,7 +110,7 @@
             <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning mr-2"
                     (click)="deleteSector(sector)"></button>
             <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-secondary"
-                    (click)="hideDialogTableListAndEditOffice()"></button>
+                    (click)="findOfficies(sector)"></button>
           </td>
         </tr>
       </ng-template>
@@ -146,7 +146,7 @@
     <ng-template pTemplate="content">
       <div class="card">
 
-        <p-table #dt [value]="offices" [rows]="3" [paginator]="true"
+        <p-table #dt [value]="officesBySector" [rows]="3" [paginator]="true"
                  [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
                  [(selection)]="selectedSectors" [rowHover]="true" dataKey="id"
                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -194,7 +194,7 @@
                     <input pInputText type="text" [(ngModel)]="office.minimumSalaryRange" required>
                   </ng-template>
                   <ng-template pTemplate="output">
-                    {{office.minimumSalaryRange}}
+                    {{office.minimumSalaryRange | currency : 'R$'}}
                   </ng-template>
                 </p-cellEditor>
               </td>
@@ -204,7 +204,7 @@
                     <input pInputText type="text" [(ngModel)]="office.maximumSalaryRange" required>
                   </ng-template>
                   <ng-template pTemplate="output">
-                    {{office.maximumSalaryRange}}
+                    {{office.maximumSalaryRange | currency : 'R$'}}
                   </ng-template>
                 </p-cellEditor>
               </td>

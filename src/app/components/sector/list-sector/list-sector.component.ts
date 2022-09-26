@@ -25,6 +25,8 @@ export class ListSectorComponent implements OnInit {
 
   offices: Office[] = [];
 
+  officesBySector: Office[] = [];
+
   submitted: boolean = false;
 
   selectedSectors: Sector[] = [];
@@ -45,9 +47,11 @@ export class ListSectorComponent implements OnInit {
   }
 
   filter() {
+    console.log(this.filterSector);
     this.sectorService.filterSector(this.filterSector).subscribe(response => {
       if (response.length != null && response.length > 0) {
         this.sectors = response;
+        console.log(response);
       }
     });
   }
@@ -55,6 +59,17 @@ export class ListSectorComponent implements OnInit {
   findAllOffice() {
     this.officeService.findAll().subscribe(response => {
       this.offices = response;
+    });
+  }
+
+  findOfficies(sector: Sector) {
+    this.officeService.findOfficeBySector(sector.id).subscribe(response => {
+      if (response.length > 0) {
+        this.officesBySector = response;
+        this.hideDialogTableListAndEditOffice();
+      } else {
+        this.messageService.add({severity: 'info', summary: 'Info', detail: 'Não existe cadastrado para este setor!'});
+      }
     });
   }
 

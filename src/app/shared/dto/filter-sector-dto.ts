@@ -1,11 +1,13 @@
 export class FilterSectorDTO {
 
-  name!: string;
+  id!: number;
 
-  idOfficie!: number;
+  name!: string;
 
   initDate!: Date;
 
   situation: boolean = true;
+
+  idOfficie!: number;
 
 }
