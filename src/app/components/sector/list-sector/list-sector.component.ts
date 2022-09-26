@@ -19,19 +19,17 @@ export class ListSectorComponent implements OnInit {
 
   sectors: Sector[] = [];
 
-  sector: Sector = new Sector();
-
   office: Office = new Office();
 
   offices: Office[] = [];
 
   officesBySector: Office[] = [];
 
+  selectedOffice!: Office;
+
   submitted: boolean = false;
 
   selectedSectors: Sector[] = [];
-
-  hideTableGridSector: boolean = false;
 
   isAtivo: boolean = true;
 
@@ -47,11 +45,13 @@ export class ListSectorComponent implements OnInit {
   }
 
   filter() {
-    console.log(this.filterSector);
+    if (this.selectedOffice != null || this.selectedOffice != undefined) {
+      this.filterSector.idOfficie = this.selectedOffice.id;
+    }
+
     this.sectorService.filterSector(this.filterSector).subscribe(response => {
       if (response.length != null && response.length > 0) {
         this.sectors = response;
-        console.log(response);
       }
     });
   }
@@ -68,7 +68,7 @@ export class ListSectorComponent implements OnInit {
         this.officesBySector = response;
         this.hideDialogTableListAndEditOffice();
       } else {
-        this.messageService.add({severity: 'info', summary: 'Info', detail: 'Não existe cadastrado para este setor!'});
+        this.messageService.add({severity: 'info', summary: 'Info', detail: 'Não existe cargo cadastrado para este setor!'});
       }
     });
   }
@@ -86,6 +86,8 @@ export class ListSectorComponent implements OnInit {
   }
 
   editSector(sector: Sector) {
+
+    this.sectorDialog = true;
 
   }
 

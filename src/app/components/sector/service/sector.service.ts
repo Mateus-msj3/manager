@@ -20,7 +20,7 @@ export class SectorService extends CrudService<Sector, number>{
   }
 
   filterSector(filter: FilterSectorDTO): Observable<Sector[]> {
-    return this._http.get<Sector[]>(this._baseUrl + "/filterSector");
+    return this._http.post<Sector[]>(this._baseUrl + "/filterSector" , filter);
   }
 
 }

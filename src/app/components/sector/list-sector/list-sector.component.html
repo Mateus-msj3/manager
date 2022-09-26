@@ -29,29 +29,20 @@
 
   <div class="p-fluid col-12 md:col-4">
     <div>
-      <!--      <p-dropdown [options]="offices"-->
-      <!--                  [(ngModel)]="filterSector.idOfficie"-->
-      <!--                  placeholder="Selecione o Cargo"-->
-      <!--                  optionLabel="name"-->
-      <!--                  [showClear]="true" class="label-data">-->
-      <!--      </p-dropdown>-->
-
-      <p-dropdown [options]="offices" [(ngModel)]="office" optionLabel="name" [filter]="true" filterBy="name"
+      <p-dropdown [options]="offices" [(ngModel)]="selectedOffice" optionLabel="name" [filter]="true" filterBy="name"
                   [showClear]="true" placeholder="Selecione o cargo" class="label-data">
         <ng-template pTemplate="selectedItem">
-          <div class="country-item country-item-value" *ngIf="office">
-            <div>{{office.name}}</div>
+          <div class="country-item country-item-value" *ngIf="selectedOffice">
+            <div>{{selectedOffice.name}}</div>
           </div>
         </ng-template>
         <ng-template>
           <div class="country-item">
-            <div>{{office.name}}</div>
+            <div>{{selectedOffice.name}}</div>
           </div>
         </ng-template>
       </p-dropdown>
     </div>
-
-
   </div>
 
   <div class="p-fluid col-12 md:col-8">
@@ -123,7 +114,7 @@
   </div>
 
 
-  <p-dialog [(visible)]="sectorDialog" [style]="{width: '450px'}" header="Detalhes do Setor" [modal]="true"
+  <p-dialog [(visible)]="sectorDialog" [style]="{width: '1300px', height: '1400px'}" header="Detalhes do Setor" [modal]="true"
             styleClass="p-fluid">
     <ng-template pTemplate="content">
       <app-new-sector></app-new-sector>
