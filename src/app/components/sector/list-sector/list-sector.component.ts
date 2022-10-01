@@ -4,7 +4,7 @@ import {Sector} from "../../../shared/models/sector";
 import {SectorService} from "../service/sector.service";
 import {Office} from "../../../shared/models/office";
 import {FilterSectorDTO} from "../../../shared/dto/filter-sector-dto";
-import {OfficieService} from "../service/officie.service";
+import {OfficieService} from "../../offices/office/service/officie.service";
 
 @Component({
   selector: 'app-list-sector',
@@ -77,25 +77,11 @@ export class ListSectorComponent implements OnInit {
     this.hideTableGridOffice = true;
   }
 
-  hideDialogSector() {
-
-  }
-
-  saveSector() {
-
-  }
-
   editSector(sector: Sector) {
-
     this.sectorDialog = true;
-
   }
 
   deleteSector(sector: Sector) {
-
-  }
-
-  deleteSelectedSectors() {
 
   }
 

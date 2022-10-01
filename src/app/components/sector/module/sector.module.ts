@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {NewSectorComponent} from "../new-sector/new-sector.component";
-import {DashboardComponent} from "../../dashboard/dashboard.component";
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
@@ -12,7 +11,6 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {FieldsetModule} from 'primeng/fieldset';
 import {CardModule} from "primeng/card";
 import {ChipsModule} from "primeng/chips";
-import {LoginComponent} from "../../login/login.component";
 import {ToastModule} from "primeng/toast";
 import {ToolbarModule} from "primeng/toolbar";
 import {TableModule} from "primeng/table";
@@ -28,22 +26,27 @@ import {MenuModule} from "primeng/menu";
 import {InputMaskModule} from "primeng/inputmask";
 import {SectorService} from "../service/sector.service";
 import {HttpClientModule} from "@angular/common/http";
-import {OfficieService} from "../service/officie.service";
+import {OfficieService} from "../../offices/office/service/officie.service";
+import {FormSectorComponent} from "../form-sector/form-sector.component";
+import {OfficeModule} from "../../offices/office/module/office.module";
 
 const routes: Routes = [
   {path: "novo-setor", component: NewSectorComponent},
   {path: "listar-setor", component: ListSectorComponent},
+  {path: "form-setor", component: FormSectorComponent},
 ];
 
 @NgModule({
   declarations: [
     NewSectorComponent,
     ListSectorComponent,
+    FormSectorComponent,
   ],
   exports: [
     NewSectorComponent,
     RouterModule,
     ListSectorComponent,
+    FormSectorComponent,
   ],
   providers:[
     MessageService,
@@ -76,6 +79,7 @@ const routes: Routes = [
     PanelModule,
     MenuModule,
     InputMaskModule,
+    OfficeModule,
   ]
 })
 export class SectorModule { }

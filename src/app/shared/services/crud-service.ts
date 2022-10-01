@@ -22,7 +22,7 @@ export abstract class CrudService<T, ID> implements CrudOperations<T, ID>{
   }
 
   update(id: ID, t: T): Observable<T> {
-    return this._http.post<T>(this._baseUrl + "/" + id, t, {});
+    return this._http.put<T>(this._baseUrl + "/" + id, t, {});
   }
 
   delete(id: ID): Observable<any> {

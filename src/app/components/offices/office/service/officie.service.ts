@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {CrudService} from "../../../shared/services/crud-service";
-import {Sector} from "../../../shared/models/sector";
+import {CrudService} from "../../../../shared/services/crud-service";
+import {Sector} from "../../../../shared/models/sector";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../../environments/environment";
+import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
-import {FilterSectorDTO} from "../../../shared/dto/filter-sector-dto";
-import {Office} from "../../../shared/models/office";
+import {FilterSectorDTO} from "../../../../shared/dto/filter-sector-dto";
+import {Office} from "../../../../shared/models/office";
 
 @Injectable({
   providedIn: 'root'
