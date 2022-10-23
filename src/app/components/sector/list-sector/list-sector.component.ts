@@ -37,7 +37,9 @@ export class ListSectorComponent implements OnInit {
 
   hideTableGridOffice: boolean = false;
 
-  constructor(private messageService: MessageService, private sectorService: SectorService, private officeService: OfficieService) {
+  constructor(private messageService: MessageService,
+              private sectorService: SectorService,
+              private officeService: OfficieService) {
   }
 
   ngOnInit(): void {
@@ -56,13 +58,23 @@ export class ListSectorComponent implements OnInit {
     });
   }
 
-  findAllOffice() {
+  private findAllOffice() {
     this.officeService.findAll().subscribe(response => {
       this.offices = response;
     });
   }
 
-  findOfficies(sector: Sector) {
+  private hideDialogTableListAndEditOffice() {
+    this.hideTableGridOffice = true;
+  }
+
+  editSector(sector: Sector) {
+    this.findOfficies(sector);
+    this.sectorDialog = true;
+    console.log(sector)
+  }
+
+  private findOfficies(sector: Sector) {
     this.officeService.findOfficeBySector(sector.id).subscribe(response => {
       if (response.length > 0) {
         this.officesBySector = response;
@@ -73,27 +85,8 @@ export class ListSectorComponent implements OnInit {
     });
   }
 
-  hideDialogTableListAndEditOffice() {
-    this.hideTableGridOffice = true;
-  }
-
-  editSector(sector: Sector) {
-    this.sectorDialog = true;
-  }
-
   deleteSector(sector: Sector) {
 
   }
 
-  onRowEditInit(office: any) {
-
-  }
-
-  onRowEditSave(office: any) {
-
-  }
-
-  onRowEditCancel(office: any, ri: any) {
-
-  }
 }

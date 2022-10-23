@@ -17,6 +17,9 @@ export class NewOfficeComponent implements OnInit {
   @Input()
   sector!: Sector;
 
+  @Input()
+  listOffice: Office[] = [];
+
   items: MenuItem[] = [];
 
   displayFormOfficie: boolean = false;
@@ -60,7 +63,9 @@ export class NewOfficeComponent implements OnInit {
   }
 
   updateOfficie(office: Office) {
+    console.log(office)
     this.displayFormOfficie = true;
+    //this.sector.offices.push(office);
     this.messageService.add({severity:'success', summary:'Success', detail:'Data Updated'});
   }
 

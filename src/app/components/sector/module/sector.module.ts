@@ -27,26 +27,22 @@ import {InputMaskModule} from "primeng/inputmask";
 import {SectorService} from "../service/sector.service";
 import {HttpClientModule} from "@angular/common/http";
 import {OfficieService} from "../../offices/office/service/officie.service";
-import {FormSectorComponent} from "../form-sector/form-sector.component";
 import {OfficeModule} from "../../offices/office/module/office.module";
 
 const routes: Routes = [
   {path: "novo-setor", component: NewSectorComponent},
   {path: "listar-setor", component: ListSectorComponent},
-  {path: "form-setor", component: FormSectorComponent},
 ];
 
 @NgModule({
   declarations: [
     NewSectorComponent,
     ListSectorComponent,
-    FormSectorComponent,
   ],
   exports: [
     NewSectorComponent,
     RouterModule,
     ListSectorComponent,
-    FormSectorComponent,
   ],
   providers:[
     MessageService,
