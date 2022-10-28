@@ -3,6 +3,7 @@ import {Sector} from "../../../shared/models/sector";
 import {Office} from "../../../shared/models/office";
 import {MenuItem, MessageService} from "primeng/api";
 import {SectorService} from "../service/sector.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -37,42 +38,87 @@ export class NewSectorComponent implements OnInit {
 
   position!: string;
 
-  constructor(private messageService: MessageService,
+  formularySector!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder,
+              private messageService: MessageService,
               private sectorService: SectorService,) {
 
   }
 
   ngOnInit(): void {
+    this.createForm(this.sector);
   }
 
-  save() {
-    if (this.isCreateMode) {
-      this.validateFormSector(this.sector);
+  createForm(sector: Sector) {
+    this.formularySector = this.formBuilder.group({
+      name: [sector.name, Validators.required],
+      initDate: [sector.initDate],
+      situation: [sector.situation],
+      offices: [sector.offices],
+    });
+  }
+
+  beforeSave() {
+    this.sector.name = this.name?.value;
+    this.sector.initDate = this.initDate?.value;
+    this.sector.situation = this.situation?.value;
+    this.sector.offices = this.offices?.value;
+  }
+
+  submit() {
+    if (this.isEditMode) {
+      this.sectorService.update(this.sector.id, this.sector).subscribe(response => {
+        this.messageService.add({severity: 'success', summary: 'Success', detail: 'Setor atualizado com sucesso!'});
+      });
+    } else {
+      this.saveSector()
+      this.resetFormularySector();
+    }
+  }
+
+  resetFormularySector() {
+    this.formularySector.reset(new Sector());
+    this.formularySector.get('offices')?.setValue(this.sector.offices = []);
+  }
+
+  saveSector() {
+    this.beforeSave();
+    if (this.validateFormSector()) {
       this.sectorService.save(this.sector).subscribe(response => {
         this.messageService.add({severity: 'success', summary: 'Success', detail: 'Setor cadastrado com sucesso!'});
       });
-    } else {
-      this.validateFormSector(this.sectorEdit);
-      this.sectorService.update(this.sectorEdit.id, this.sectorEdit).subscribe(response => {
-        this.messageService.add({severity: 'success', summary: 'Success', detail: 'Setor atualizado com sucesso!'});
-      });
+    }else {
+
     }
-
-    this.resetFormSector();
   }
 
-  resetFormSector() {
-    this.sector = new Sector();
-  }
-
-  validateFormSector(sector: Sector) {
-    if (sector.name == null || sector.name === "") {
-      return this.messageService.add({
+  validateFormSector(): boolean {
+    if (!this.formularySector.valid) {
+      this.messageService.add({
         severity: 'error',
         summary: 'Rejected',
         detail: 'É necessário informar o nome do Setor'
       });
+      return false;
     }
+    return true;
+  }
+
+  get name() {
+    return this.formularySector.get('name');
+  }
+
+  get initDate() {
+    return this.formularySector.get('initDate');
+  }
+
+  get situation() {
+    return this.formularySector.get('situation');
+  }
+
+  get offices() {
+    return this.formularySector.get('offices');
   }
 
 }

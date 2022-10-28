@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule, Routes} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NewSectorComponent} from "../new-sector/new-sector.component";
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
@@ -50,32 +50,33 @@ const routes: Routes = [
     SectorService,
     OfficieService
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    InputTextModule,
-    FormsModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule,
-    ButtonModule,
-    CalendarModule,
-    BrowserAnimationsModule,
-    RadioButtonModule,
-    FieldsetModule,
-    CardModule,
-    ChipsModule,
-    ToastModule,
-    ToolbarModule,
-    TableModule,
-    ConfirmDialogModule,
-    DropdownModule,
-    InputNumberModule,
-    DialogModule,
-    RatingModule,
-    PanelModule,
-    MenuModule,
-    InputMaskModule,
-    OfficeModule,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+        InputTextModule,
+        FormsModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        ButtonModule,
+        CalendarModule,
+        BrowserAnimationsModule,
+        RadioButtonModule,
+        FieldsetModule,
+        CardModule,
+        ChipsModule,
+        ToastModule,
+        ToolbarModule,
+        TableModule,
+        ConfirmDialogModule,
+        DropdownModule,
+        InputNumberModule,
+        DialogModule,
+        RatingModule,
+        PanelModule,
+        MenuModule,
+        InputMaskModule,
+        OfficeModule,
+        ReactiveFormsModule,
+    ]
 })
 export class SectorModule { }

@@ -1,46 +1,51 @@
-<div class="grid p-fluid title">
-  <div class="p-fluid col-12 md:col-8">
-    <h2 class="">{{isCreateMode ? 'Cadastro de Setores' : 'Edição de Setores'}}</h2>
-  </div>
+<p-toast></p-toast>
 
-  <div class="p-fluid col-12 md:col-4">
-    <div class="">
-      <p-button class="button" label="Salvar" icon="pi pi-check" iconPos="right" (click)="save()"></p-button>
+<form [formGroup]="formularySector" (ngSubmit)="submit()">
+
+  <div class="grid p-fluid title">
+    <div class="p-fluid col-12 md:col-8">
+      <h2 class="">{{isEditMode ?'Edição de Setores' : 'Cadastro de Setores'}}</h2>
+    </div>
+
+    <div class="p-fluid col-12 md:col-4">
+      <div class="">
+        <p-button type="submit" class="button" label="Salvar" icon="pi pi-check" iconPos="right" ></p-button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="grid p-fluid">
+  <div class="grid p-fluid">
 
-  <div class="p-fluid col-12 md:col-12">
-    <div class="p-inputgroup">
+    <div class="p-fluid col-12 md:col-12">
+      <div class="p-inputgroup">
       <span class="p-float-label">
-        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="sector.name" name="name">
+        <input class="input" id="float-input" type="text" pInputText formControlName="name" name="name">
         <label for="float-input">Nome</label>
       </span>
+      </div>
+
+    </div>
+
+    <div class="p-fluid col-12 md:col-4">
+      <div>
+        <label for="icon" class="label-data">Data de Inicio</label>
+        <p-calendar formControlName="initDate" [showIcon]="true" inputId="icon1" name="initDate"></p-calendar>
+      </div>
+    </div>
+
+    <div class="p-fluid col-12 md:col-8">
+      <div class="radio">
+        <label class="label-radio">Status:</label>
+        <p-radioButton name="situation" [value]="isAtivo" label="Ativo" formControlName="situation"
+                       class="radio-button"></p-radioButton>
+        <p-radioButton name="situation" [value]="isInativo" label="Inativo" formControlName="situation"
+                       class="radio-button"></p-radioButton>
+      </div>
+    </div>
+
+    <div class="p-fluid col-12 md:col-12">
+      <app-new-office [sector]="sector" [office]="office"></app-new-office>
     </div>
 
   </div>
-
-  <div class="p-fluid col-12 md:col-4">
-    <div>
-      <label for="icon" class="label-data">Data de Inicio</label>
-      <p-calendar [(ngModel)]="sector.initDate" [showIcon]="true" inputId="icon1" name="initDate"></p-calendar>
-    </div>
-  </div>
-
-  <div class="p-fluid col-12 md:col-8">
-    <div class="radio">
-      <label class="label-radio">Status:</label>
-      <p-radioButton name="situation" [value]="isAtivo" label="Ativo" [(ngModel)]="sector.situation"
-                     class="radio-button"></p-radioButton>
-      <p-radioButton name="situation" [value]="isInativo" label="Inativo" [(ngModel)]="sector.situation"
-                     class="radio-button"></p-radioButton>
-    </div>
-  </div>
-
-  <div class="p-fluid col-12 md:col-12">
-    <app-new-office [sector]="sector" [office]="office"></app-new-office>
-  </div>
-
-</div>
+</form>
